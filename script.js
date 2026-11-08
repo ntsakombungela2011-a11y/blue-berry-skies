@@ -126,7 +126,7 @@
       const file = "abcdefgh"[pos.f];
       const square = file + rank;
       const piece = board[pos.r][pos.f];
-      const isLight = (pos.r + pos.f) % 2 === 1;
+      const isLight = (pos.r + pos.f) % 2 === 0;
       const button = document.createElement("button");
       button.type = "button";
       button.className = "square " + (isLight ? "light" : "dark");
@@ -162,6 +162,7 @@
     if (!moves.length) { clearSelection(); renderBoard(); return; }
     selected = square;
     legalTargets = moves;
+    tone(520,.055,"sine",.018);
     renderBoard();
   }
   function finishMove(move) {
@@ -225,6 +226,7 @@
   document.getElementById("undo-move").addEventListener("click", function () {
     if (!game.history().length) return;
     game.undo();
+    tone(360,.09,"triangle",.022);
     if (puzzleMode) puzzleMode = false;
     lastMove = null;
     clearSelection();
@@ -233,10 +235,11 @@
   });
   document.getElementById("flip-board").addEventListener("click", function () {
     flipped = !flipped;
+    tone(430,.07,"sine",.018);
     renderBoard();
   });
   document.getElementById("reset-game").addEventListener("click", function () {
-    game.reset(); puzzleMode = false; lastMove = null; clearSelection(); refresh(); toast("Fresh board. White to move.");
+    game.reset(); puzzleMode = false; lastMove = null; clearSelection(); tone(490,.08,"sine",.02); refresh(); toast("Fresh board. White to move.");
   });
   function loadPuzzle() {
     game.load(puzzleFen);
@@ -256,10 +259,11 @@
       document.getElementById("modal-title").textContent = tile.dataset.noteTitle;
       document.getElementById("modal-body").textContent = tile.dataset.noteBody;
       noteModal.classList.add("open");
+      tone(620,.11,"sine",.025);
       noteModal.setAttribute("aria-hidden","false");
     });
   });
-  function closeNote() { noteModal.classList.remove("open"); noteModal.setAttribute("aria-hidden","true"); }
+  function closeNote() { if (noteModal.classList.contains("open")) tone(390,.07,"sine",.018); noteModal.classList.remove("open"); noteModal.setAttribute("aria-hidden","true"); }
   document.querySelectorAll("[data-close-note]").forEach(el => el.addEventListener("click",closeNote));
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") { closeNote(); closePromotion(); }
