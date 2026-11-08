@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#17291f">
+  <meta name="description" content="A little chess club, made for one very special birthday.">
+  <title>The Queen's Move ♟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <div class="topline"><span>THE LITTLE CHESS CLUB</span><span>EST. FOR YOUR BIRTHDAY · ♡</span></div>
+  <header class="site-header">
+    <a class="wordmark" href="#"><span class="wordmark-piece">♘</span><span>the queen's move<small>A PRIVATE LITTLE CLUB</small></span></a>
+    <nav><a href="#the-game">The board</a><a href="#little-things">Little things</a><a href="#letter">A note</a></nav>
+    <button class="sound-button" id="sound-toggle" type="button" aria-pressed="false">Sound off <span>♪</span></button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="overline"><span></span> A MATCH MADE FOR ONE</p>
+        <h1>For the girl<br>who's always<br><em>three moves ahead.</em></h1>
+        <p class="hero-text">Some people play chess. You make it look like an art form. So I made you a little place where the board is yours, the clock can wait, and the birthday girl always gets the first move.</p>
+        <a class="round-link" href="#the-game">TAKE YOUR SEAT <span>↘</span></a>
+        <div class="hero-foot"><span>01 / A VERY SPECIAL MATCH</span><span>WHITE TO MOVE ♙</span></div>
+      </div>
+      <div class="hero-art" aria-label="Decorative chess pieces">
+        <div class="paper-stamp">THE<br>QUEEN'S<br>CLUB <span>♡</span></div>
+        <div class="hero-board">
+          <div class="hero-square light"></div><div class="hero-square dark"></div><div class="hero-square light"></div><div class="hero-square dark"></div>
+          <div class="hero-square dark"></div><div class="hero-square light"></div><div class="hero-square dark"></div><div class="hero-square light"></div>
+          <div class="hero-square light"></div><div class="hero-square dark"></div><div class="hero-square light"></div><div class="hero-square dark"></div>
+          <div class="hero-square dark"></div><div class="hero-square light"></div><div class="hero-square dark"></div><div class="hero-square light"></div>
+          <span class="hero-piece queen">♕</span><span class="hero-piece knight">♞</span><span class="hero-piece pawn">♙</span>
+        </div>
+        <p class="art-caption">A little strategy. A lot of love.</p>
+        <span class="art-number">64 SQUARES · ONE QUEEN</span>
+      </div>
+    </section>
+
+    <section class="intro-strip">
+      <span class="strip-mark">✳</span>
+      <p>HAPPY BIRTHDAY TO MY FAVOURITE OPPONENT.</p>
+      <span class="strip-small">NO CLOCK. NO PRESSURE. JUST YOU.</span>
+    </section>
+
+    <section class="game-section" id="the-game">
+      <div class="section-heading">
+        <div><p class="overline">02 / THE BOARD IS YOURS</p><h2>Your move,<br><em>birthday girl.</em></h2></div>
+        <p>This is your little corner of the club. Play both sides, try a few moves, undo them, start over. Nobody is rushing you.</p>
+      </div>
+      <div class="game-layout">
+        <div class="board-wrap">
+          <div class="board-topline"><span>THE MAIN ROOM</span><span id="turn-label">WHITE TO MOVE</span></div>
+          <div class="board-frame"><div id="chessboard" class="chessboard" role="group" aria-label="Interactive chessboard"></div></div>
+          <div class="board-bottomline"><span>♔ THE QUEEN'S TABLE</span><span>TAKE YOUR TIME</span></div>
+        </div>
+        <aside class="game-side">
+          <div class="game-status"><span class="status-dot"></span><span id="game-status" aria-live="polite">White to move. Make yourself at home.</span></div>
+          <div class="move-panel"><div class="panel-title"><span>THE MOVE JOURNAL</span><span>♧</span></div><div id="move-list" class="move-list"><p class="empty-moves">The first move is yours.</p></div></div>
+          <div class="game-controls"><button id="undo-move" class="control-button" type="button">↶ Undo</button><button id="flip-board" class="control-button" type="button">⇅ Flip</button><button id="reset-game" class="control-button reset" type="button">New game ↻</button></div>
+          <p class="board-tip">Tap a piece, then tap a highlighted square. Pawns promote to queens. The board follows proper chess rules.</p>
+          <div class="puzzle-card"><div class="puzzle-top"><span>THE LITTLE CHALLENGE</span><span>♛</span></div><h3>Can you find<br>the finishing move?</h3><p>One move. Checkmate. No hints from the kitchen.</p><button id="start-puzzle" type="button">Set the puzzle <span>↗</span></button></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="little-section" id="little-things">
+      <div class="section-heading compact"><div><p class="overline">03 / BETWEEN THE MOVES</p><h2>Three little<br><em>reminders.</em></h2></div><p>Not every good thing needs a strategy. Some things are just true.</p></div>
+      <div class="note-row">
+        <button class="note-tile tile-one" data-note-title="A little reminder" data-note-body="You don't have to win every game, solve every problem or have everything figured out. You are already wonderful on the days when all you do is show up as yourself. ♡"><span>NOTE NO. 01</span><strong>For the days<br>that feel like a draw.</strong><i>Read this ↗</i></button>
+        <button class="note-tile tile-two" data-note-title="A little wish" data-note-body="I hope this next chapter brings you beautiful surprises, kind people, brave decisions, loud laughter and all the little victories you deserve. May life keep giving you reasons to smile. ✳"><span>NOTE NO. 02</span><strong>For the year<br>ahead of you.</strong><i>Read this ↗</i></button>
+        <button class="note-tile tile-three" data-note-title="My favourite truth" data-note-body="Out of all the people in the world, I get to know you. That is something I will never take for granted. You are my favourite person to cheer for, learn from and make memories with. Always. ♡"><span>NOTE NO. 03</span><strong>For whenever<br>you need to know.</strong><i>Read this ↗</i></button>
+      </div>
+    </section>
+
+    <section class="letter-section" id="letter">
+      <div class="letter-side"><p class="overline">04 / SEALED WITH LOVE</p><span class="letter-seal">♕</span><span class="letter-side-caption">A NOTE FROM YOUR<br>VERY UNBIASED FAN</span></div>
+      <div class="letter-paper">
+        <p class="letter-date">A LITTLE LETTER · FOR YOUR BIRTHDAY</p>
+        <h2>To my favourite<br><em>queen on the board.</em></h2>
+        <p>I know how much you love chess, and I know you're good at it. You notice things other people miss, you think ahead, and you have a way of making every move count.</p>
+        <p>But I hope you know that you don't have to be clever, strong or impressive every second of every day. You can have quiet days. You can make mistakes. You can change your mind. You deserve kindness in every version of yourself.</p>
+        <p>I'm proud of you, I'm rooting for you, and I hope this new year of your life is full of moments that make you genuinely happy.</p>
+        <p class="letter-signoff">Happy birthday, my love. ♡</p>
+        <span class="letter-postmark">ALWAYS ON YOUR SIDE · ♥</span>
+      </div>
+    </section>
+
+    <section class="closing">
+      <span class="closing-piece">♘</span>
+      <p class="overline">THE GAME CAN WAIT</p>
+      <h2>You're the<br><em>whole story.</em></h2>
+      <p>May your year be full of good moves, good people and very, very good cake.</p>
+      <a href="#the-game">ONE MORE GAME? ↑</a>
+    </section>
+  </main>
+
+  <footer><span>THE QUEEN'S MOVE · A LITTLE BIRTHDAY CLUB</span><span>MADE WITH LOVE, NOT A CHESS ENGINE. ♡</span></footer>
+
+  <div class="note-modal" id="note-modal" aria-hidden="true">
+    <button class="modal-backdrop" type="button" data-close-note aria-label="Close note"></button>
+    <article class="modal-paper" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close" type="button" data-close-note aria-label="Close">×</button>
+      <p class="overline">A NOTE FROM YOUR LITTLE CHESS CLUB</p>
+      <h2 id="modal-title">A little reminder</h2>
+      <p id="modal-body"></p>
+      <span class="modal-signoff">♡ ALWAYS IN YOUR CORNER</span>
+    </article>
+  </div>
+
+  <div class="promotion-modal" id="promotion-modal" aria-hidden="true">
+    <div class="promotion-paper"><p class="overline">A PAWN'S BIG MOMENT</p><h2>Choose your promotion</h2><div class="promotion-options"><button data-promotion="q">♕<small>Queen</small></button><button data-promotion="r">♖<small>Rook</small></button><button data-promotion="b">♗<small>Bishop</small></button><button data-promotion="n">♘<small>Knight</small></button></div></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
