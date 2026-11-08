@@ -122,8 +122,8 @@
     const board = game.board();
     boardEl.innerHTML = "";
     rows.forEach(function (pos) {
-      const rank = flipped ? pos.r + 1 : 8 - pos.r;
-      const file = flipped ? "hgfedcba"[pos.f] : "abcdefgh"[pos.f];
+      const rank = 8 - pos.r;
+      const file = "abcdefgh"[pos.f];
       const square = file + rank;
       const piece = board[pos.r][pos.f];
       const isLight = (pos.r + pos.f) % 2 === 1;
@@ -135,13 +135,13 @@
       if (selected === square) button.classList.add("selected");
       if (lastMove && (lastMove.from === square || lastMove.to === square)) button.classList.add("last-move");
       if (legalTargets.some(m => m.to === square)) button.classList.add(piece ? "legal-capture" : "legal-target");
-      if (pos.f === 0) {
+      if ((!flipped && pos.f === 0) || (flipped && pos.f === 7)) {
         const rankMark = document.createElement("span");
         rankMark.className = "coord rank";
         rankMark.textContent = rank;
         button.appendChild(rankMark);
       }
-      if (pos.r === 7) {
+      if ((!flipped && pos.r === 7) || (flipped && pos.r === 0)) {
         const fileMark = document.createElement("span");
         fileMark.className = "coord file";
         fileMark.textContent = file;
